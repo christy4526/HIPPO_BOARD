@@ -6,6 +6,7 @@
 	SELECT param1 as param1
 		, param2 as param2
 		, param3 as param3 
+		, key as key 
 		FROM test
 		WHERE key = #{key}
 </select>
@@ -13,7 +14,31 @@
    SELECT param1 as param1
       , param2 as param2
       , param3 as param3
+      , key as key 
    FROM test
    ORDER BY key DESC
 </select>
+<insert id="insertTest" parameterType="TestVO">
+INSERT INTO test (
+	param1
+	, param2
+	, param3
+	)
+	VALUES (
+	#{param1}
+	, #{param2}
+	, #{param3}
+	)
+</insert>
+<delete id="deleteTest" parameterType="Map">
+DELETE FROM test
+	WHERE key = #{key}
+</delete>
+<update id="updateTest" parameterType="TestVO">
+UPDATE test
+	SET param1 = #{param1}
+	, param2 = #{param2}
+	, param3 = #{param3}
+	WHERE key = #{key}
+</update>
 </mapper>

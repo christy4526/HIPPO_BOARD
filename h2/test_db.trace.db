@@ -59,3 +59,51 @@ Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:461)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	... 55 more
+2020-07-20 20:18:49 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'key1' (TEST: ""KEY"" INT DEFAULT NEXT VALUE FOR ""PUBLIC"".""SYSTEM_SEQUENCE_EE08AAF5_D534_416F_86E4_6A39E5FD59AB"" NOT NULL NULL_TO_DEFAULT SEQUENCE ""PUBLIC"".""SYSTEM_SEQUENCE_EE08AAF5_D534_416F_86E4_6A39E5FD59AB"")"; SQL statement:
+insert into test(key,param1, param2, param3) values ('key1', 'yhs','jmk','ojh') [22018-200]
+2020-07-20 20:19:14 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'hipo' (TEST: ""KEY"" INT DEFAULT NEXT VALUE FOR ""PUBLIC"".""SYSTEM_SEQUENCE_EE08AAF5_D534_416F_86E4_6A39E5FD59AB"" NOT NULL NULL_TO_DEFAULT SEQUENCE ""PUBLIC"".""SYSTEM_SEQUENCE_EE08AAF5_D534_416F_86E4_6A39E5FD59AB"")"; SQL statement:
+insert into test(key,param1, param2, param3) values ('hipo', 'yhs','jmk','ojh') [22018-200]
+2020-07-20 20:19:19 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'hipo' (TEST: ""KEY"" INT DEFAULT NEXT VALUE FOR ""PUBLIC"".""SYSTEM_SEQUENCE_EE08AAF5_D534_416F_86E4_6A39E5FD59AB"" NOT NULL NULL_TO_DEFAULT SEQUENCE ""PUBLIC"".""SYSTEM_SEQUENCE_EE08AAF5_D534_416F_86E4_6A39E5FD59AB"")"; SQL statement:
+insert into test(key,param1, param2, param3) values ('hipo', 'yhs','jmk','ojh') [22018-200]
+2020-07-20 20:20:07 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO TEST (
+PARAM1
+, PARAM2
+, PARAM3
+)
+VALUES (
+'11111'
+,'22222'
+,'33333'
+)
+
+UPDATE[*] TEST
+SET PARAM1 = '1234'
+, PARAM2 = '2345'
+, PARAM3 = '3456'
+WHERE KEY = 1
+
+DELETE FROM TEST
+WHERE KEY = 3333"; SQL statement:
+INSERT INTO test (
+param1
+, param2
+, param3
+)
+VALUES (
+'11111'
+,'22222'
+,'33333'
+)
+
+UPDATE test
+SET param1 = '1234'
+, param2 = '2345'
+, param3 = '3456'
+WHERE key = 1
+
+DELETE FROM test
+WHERE key = 3333 [42000-200]
