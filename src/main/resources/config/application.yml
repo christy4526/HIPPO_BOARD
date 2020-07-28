@@ -1,4 +1,7 @@
 spring:
+  devtools:
+    livereload:      enabled: true
+  thymeleaf:    cache: false
   h2:
     console: #브라우저에서 바로 console로 접근 가능
       enabled: true

@@ -9,8 +9,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class TestVO {
+	private int key;
 	private String param1;
 	private String param2;
 	private String param3;
-	private int key;
 }
