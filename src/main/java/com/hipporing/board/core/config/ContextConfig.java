@@ -1,13 +1,19 @@
 package com.hipporing.board.core.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
+import com.hipporing.board.core.interceptor.AuthInterceptor;
+
 @Configuration
 public class ContextConfig implements WebMvcConfigurer {
+	@Autowired
+	private AuthInterceptor authInterceptor;
 	
 	@Bean
 	public SpringTemplateEngine templateEngine() {
@@ -24,6 +30,12 @@ public class ContextConfig implements WebMvcConfigurer {
         templateResolver.setTemplateMode("HTML"); // HTML 형식으로 읽는다.
         templateResolver.setCacheable(false); // 캐싱하지 않는다.
         return templateResolver;
+	}
+	
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(authInterceptor)
+		.excludePathPatterns("/login");
 	}
 
 }
