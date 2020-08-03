@@ -6,11 +6,11 @@
 </head>
 <body>
 <form action="/update" method="post">
+	<input name="key" type="hidden" th:value="${test.key}" />
 	<input name="param1" type="text" th:value="${test.param1}" />
 	<input name="param2" type="text" th:value="${test.param2}" />
 	<input name="param3" type="text" th:value="${test.param3}" />
-	<input type="text" name="key" th:value="${test.key}" />
-	<input type="submit" value="제출"/>
+	<input type="submit" value="update"/>
 </form>
 
 </body>

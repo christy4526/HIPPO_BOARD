@@ -68,6 +68,21 @@ public class WebController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping(value = "/update/{key}", method= {RequestMethod.GET})
+	public String update(@PathVariable(name = "key", required = true) int key
+			, Model model) {
+		TestVO test = this.testService.getTest(key);
+		model.addAttribute("test", test);
+		
+		return "web/update";
+	}
+	
+	@RequestMapping(value = "/update", method = {RequestMethod.POST})
+	public String postUpdate(TestVO test) {
+		this.testService.updateTest(test);
+		return "redirect:/";
+	}
+	
 	@RequestMapping(value = "/login", method = {RequestMethod.GET})
 	public String login() {
 		return "web/login";
