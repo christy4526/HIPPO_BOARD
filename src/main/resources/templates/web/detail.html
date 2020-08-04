@@ -1,21 +1,23 @@
 <html>
 <head>
+<meta charset="UTF-8">
 <title>Write Page</title>
 </head>
 <body>
-<div>
-	<p th:text="${test.param1}"></p>
-	<p th:text="${test.param2}"></p>
-	<p th:text="${test.param3}"></p>
-	<p th:text="${test.key}"></p>
+
+<p th:text="${test.param1}"></p>
+<p th:text="${test.param2}"></p>
+<p th:text="${test.param3}"></p>
+<p th:text="${test.key}"></p>
+
+<div th:if="${test.regId == userId}">
 	<form action="/delete" method="post">
-	<input type="text" name="key" th:value="${test.key}" />
-	<input type="submit" value="DELETE" />
+		<input type="text" name="key" th:value="${test.key}" />
+		<input type="submit" value="DELETE" />
 	</form>
 	<form th:action="@{'/update/' + ${test.key}}" method="get">
-	<input type="submit" value="UPDATE" />
+		<input type="submit" value="UPDATE" />
 	</form>
 </div>
-</form>
 </body>
 </html>

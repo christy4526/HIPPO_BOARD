@@ -9,17 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import com.hipporing.board.core.base.BaseDao;
 import com.hipporing.board.test.vo.TestVO;
 
 //값을 불러옴
 @Repository
-public class TestDao {
-	
-	@Autowired
-	@Qualifier("sqlSessionTemplate")
-	private SqlSession sqlSession;
-	//TestVO의 값들을 받아오는 함수
-	//보통 이런식으로 DB에서 값을 받아옴 sqlSession.selectOne("test.test.getTest", param);
+public class TestDao extends BaseDao{
 	
 	public TestVO getTest(int key) {
 		Map<String, Object> param = new HashMap<String, Object>();

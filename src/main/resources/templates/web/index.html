@@ -1,10 +1,35 @@
 <html>
 <head>
+<meta charset="UTF-8">
 <title>Home Page</title>
 </head>
 <body>
-<div th:each="test:${tests}" >
-<a th:text="${test.param1}" th:href="@{'/detail/' + ${test.key}}" ></a>
-</div>
+<h1>Index</h1>
+
+<table style="width:100%;">
+	<colgroup>
+		<col width="60%" />
+		<col width="20%" />
+		<col width="20%" />
+	</colgroup>
+	<thead>
+		<tr>
+		<th>Title</th>
+		<th>Author</th>
+		<th>Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="test:${tests}">
+			<td>
+			<a th:text="${test.param1}" th:href="@{'/detail/' + ${test.key}}" ></a>
+			</td>
+			<td th:text="${test.regId}"></td>
+			<td th:text="${test.regDtt}"></td>
+		</tr>
+	</tbody>
+</table>
+<button onclick="javascript:window.location.href='/write'">Write</button>
+
 </body>
 </html>

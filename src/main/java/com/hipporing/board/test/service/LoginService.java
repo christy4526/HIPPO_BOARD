@@ -5,11 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hipporing.board.core.base.BaseService;
 import com.hipporing.board.test.dao.LoginDao;
 import com.hipporing.board.test.vo.LoginVO;
 
 @Service
-public class LoginService {
+public class LoginService extends BaseService {
 	
 	@Autowired
 	private LoginDao loginDao;
