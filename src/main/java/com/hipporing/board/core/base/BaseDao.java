@@ -16,4 +16,5 @@ public class BaseDao {
 	protected SqlSession sqlSession;
 	//TestVO의 값들을 받아오는 함수
 	//보통 이런식으로 DB에서 값을 받아옴 sqlSession.selectOne("test.test.getTest", param);
+	
 }

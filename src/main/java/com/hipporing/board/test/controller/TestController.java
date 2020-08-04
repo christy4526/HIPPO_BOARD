@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hipporing.board.core.base.BaseController;
 import com.hipporing.board.test.service.TestService;
 import com.hipporing.board.test.vo.TestVO;
 
@@ -16,7 +17,7 @@ import com.hipporing.board.test.vo.TestVO;
 //사용자의 입력을 받아서 
 @RestController
 @RequestMapping(value = "/test")
-public class TestController {
+public class TestController extends BaseController {
 	@Autowired
 	private TestService testService;
 	

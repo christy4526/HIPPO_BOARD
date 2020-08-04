@@ -5,8 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -81,6 +79,7 @@ public class WebController extends BaseController {
 		
 		TestVO test = this.testService.getTest(key);
 		model.addAttribute("test", test);
+		
 		return "web/detail";
 	}
 	
@@ -88,6 +87,7 @@ public class WebController extends BaseController {
 	public String delete(TestVO test) {
 		
 		this.testService.deleteTest(test.getKey());
+		
 		return "redirect:/";
 	}
 	
@@ -105,6 +105,7 @@ public class WebController extends BaseController {
 	public String postUpdate(TestVO test) {
 		
 		this.testService.updateTest(test);
+		
 		return "redirect:/";
 	}
 	
