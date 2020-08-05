@@ -10,7 +10,7 @@ import com.hipporing.board.core.base.BaseController;
 @RequestMapping(value = "/ajax")
 public class AjaxController extends BaseController {
 	
-	@RequestMapping(value = "/", method = {RequestMethod.GET})
+	@RequestMapping(value = "", method = {RequestMethod.GET})
 	public String index() {
 		return "ajax/index";
 	}
